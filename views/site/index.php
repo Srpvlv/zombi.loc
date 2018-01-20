@@ -1,9 +1,8 @@
 <?php
 
-/* @var $this yii\web\View */
-
-$this->title = 'My Yii Application';
+$this->title = 'Zombi DB';
 ?>
+<?php/*
 <div class="site-index">
 
     <div class="jumbotron">
@@ -50,4 +49,4 @@ $this->title = 'My Yii Application';
         </div>
 
     </div>
-</div>
+</div>*/?>
