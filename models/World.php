@@ -18,19 +18,8 @@ class World extends ActiveRecord
         return[
             ['name','required'],
             ['name','string','max' => 255],
-            //['img','file','skipOnEmpty'=>false,'extension'=>'jpg'],
-            ['dificult', 'safe'],
+            [['dificult','img'], 'safe'],
         ];
     }
-
-    /*public function upload()
-    {
-        if ($this->validate()) {
-            $this->img->saveAs('uploads/' . $this->img->baseName . '.' . $this->img->extension);
-            return true;
-        } else {
-            return false;
-        }
-    }*/
 
 }
