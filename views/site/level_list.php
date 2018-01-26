@@ -26,7 +26,7 @@ echo 'Количесто уровней '.$selectWorld -> getLevels()->count();
         {
             echo '<b>Дополнительная информация:</b><br>'.$level->special.'<br>';
         }
-        echo '<p><a class="btn btn-success" href='.Url::to(['new_data/level_edit','id'=>$level->id]).'>Дополнить</a></p>';
+        echo '<p><a class="btn btn-primary" href='.Url::to(['new_data/level_edit','id'=>$level->id]).'>Дополнить</a></p>';
         echo '</td>';
         /*Список монстрой уровня
          * echo '<td>';
@@ -35,6 +35,10 @@ echo 'Количесто уровней '.$selectWorld -> getLevels()->count();
         echo 'Количесто уровней '.$world -> getLevels()->count();
         echo '<p><a class="btn btn-success" href='.Url::to(['site/level_list','id'=>$world->id]).'>Список уровней</a></p>';
         echo '</td>';*/
+        echo '<td>';
+        echo '<p><a class="btn btn-success" href='.Url::to(['new_data/level_monster','id'=>$level->id]).'>Добавить<br>монстра</a></p>';
+        echo '</td>';
+
         echo '</tr>';
     }
     ?>
