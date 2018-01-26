@@ -22,4 +22,8 @@ class World extends ActiveRecord
         ];
     }
 
+    public function getLevels()
+    {
+        return $this -> hasMany(Level::className(),['worldId'=>'id']);
+    }
 }

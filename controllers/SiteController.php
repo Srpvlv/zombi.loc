@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\World;
 
 class SiteController extends Controller
 {
@@ -59,9 +60,10 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex()//World List
     {
-        return $this->render('index');
+        $worldList = World::find()->all();
+        return $this->render('index', compact('worldList'));
     }
 
     /**

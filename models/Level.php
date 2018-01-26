@@ -21,4 +21,9 @@ class Level extends ActiveRecord
             ['wordId', 'safe'],
         ];
     }
+
+    public function getWorld()
+    {
+        return $this -> hasOne(World::className(),['id'=>'worldId']) ;
+    }
 }
