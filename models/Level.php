@@ -18,7 +18,7 @@ class Level extends ActiveRecord
         return[
             [['name','type'],'required'],
             ['special','string','max' => 254],
-            ['wordId', 'safe'],
+            ['worldId', 'safe'],
         ];
     }
 
