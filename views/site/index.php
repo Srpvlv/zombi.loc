@@ -3,7 +3,7 @@ use yii\helpers\Url;
 
 $this->title = 'Zombi DB';
 ?>
-<h3>Список уровней</h3>
+<h3>Список миров</h3>
 <br>
 <table>
 <?php

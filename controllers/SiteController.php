@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Level;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -64,6 +65,13 @@ class SiteController extends Controller
     {
         $worldList = World::find()->all();
         return $this->render('index', compact('worldList'));
+    }
+
+    public function actionLevel_list($id)
+    {
+        $selectWorld = World::find()->where(['id'=>$id])->one();
+        $levelList = Level::find()->where(['worldId'=>$id])->all();
+        return $this -> render('level_list',compact('selectWorld','levelList'));
     }
 
     /**
