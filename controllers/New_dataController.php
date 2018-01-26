@@ -7,6 +7,7 @@ use app\models\Monster;
 use app\models\Level;
 use yii\web\UploadedFile;
 use yii\web\Controller;
+use yii\helpers\Url;
 use yii;
 
 class New_dataController extends Controller
@@ -51,5 +52,16 @@ class New_dataController extends Controller
                     return $this->refresh();
         }
         return $this -> render('level',compact('newLevel','worldList'));
+    }
+
+    public function actionLevel_edit($id)
+    {
+        $selectLevel = Level::find()->where(['id'=>$id])->one();
+        $worldList = World::find()->all();
+        if ($selectLevel->load(Yii::$app->request->post())){
+            if ($selectLevel->save())
+                return $this->redirect(Url::to(['site/level_list','id'=>$selectLevel->worldId]));
+        }
+        return $this -> render('level_edit',compact('selectLevel','worldList'));
     }
 }

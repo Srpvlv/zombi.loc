@@ -11,7 +11,7 @@ echo 'Сложность '.$selectWorld -> dificult.'<br>';
 echo 'Количесто уровней '.$selectWorld -> getLevels()->count();
 ?>
 <h3>Список уровней</h3>
-<table class="table table-dark">
+<table class="table">
     <?php
     foreach ($levelList as $level)
     {
