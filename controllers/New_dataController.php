@@ -4,6 +4,7 @@ namespace app\controllers;
 use app\models\UploadImg;
 use app\models\World;
 use app\models\Monster;
+use app\models\Level;
 use yii\web\UploadedFile;
 use yii\web\Controller;
 use yii;
@@ -39,5 +40,16 @@ class New_dataController extends Controller
             }
         }
         return $this -> render('monster',compact('newMonster','newImg','worldList'));
+    }
+
+    public function actionLevel()
+    {
+        $newLevel = new Level();
+        $worldList = World::find()->all();
+        if ($newLevel->load(Yii::$app->request->post())){
+                if ($newLevel->save())
+                    return $this->refresh();
+        }
+        return $this -> render('level',compact('newLevel','worldList'));
     }
 }
