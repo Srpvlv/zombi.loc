@@ -1,6 +1,7 @@
 <?php
 
 namespace app\controllers;
+use app\models\LevelMonster;
 use app\models\UploadImg;
 use app\models\World;
 use app\models\Monster;
@@ -63,5 +64,20 @@ class New_dataController extends Controller
                 return $this->redirect(Url::to(['site/level_list','id'=>$selectLevel->worldId]));
         }
         return $this -> render('level_edit',compact('selectLevel','worldList'));
+    }
+
+    public function actionLevel_monster($id)
+    {
+        $newCol = new LevelMonster();
+        $selectLevel = Level::find()->where(['id'=>$id])->one();
+        $monsterList = Monster::find()->where(['wordId'=>$selectLevel->worldId])->all();
+        $worldName = World::find()->where(['id'=>$selectLevel->worldId])->one();
+        $newCol -> levelId = $id;
+        $newCol -> levelId = $selectLevel->id;
+        if ($newCol->load(Yii::$app->request->post())){
+            if ($newCol->save())
+                return $this->redirect(Url::to(['site/level_list','id'=>$selectLevel->worldId]));
+        }
+        return $this -> render('level_monster',compact('selectLevel','monsterList','newCol','worldName'));
     }
 }

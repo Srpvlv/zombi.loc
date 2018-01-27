@@ -10,6 +10,7 @@ echo '<img src="/web/uploads/'.$selectWorld->img.'" alt="World icon" /><br>';
 echo 'Сложность '.$selectWorld -> dificult.'<br>';
 echo 'Количесто уровней '.$selectWorld -> getLevels()->count();
 ?>
+<?= '<p><a class="btn btn-lg btn-success" href='.Url::to(['new_data/level']).'>Добавить уровень</a></p>' ?>
 <h3>Список уровней</h3>
 <table class="table">
     <?php
