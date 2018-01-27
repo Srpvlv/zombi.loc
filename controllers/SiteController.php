@@ -70,7 +70,7 @@ class SiteController extends Controller
     public function actionLevel_list($id)
     {
         $selectWorld = World::find()->where(['id'=>$id])->one();
-        $levelList = Level::find()->where(['worldId'=>$id])->all();
+        $levelList = Level::find()->where(['worldId'=>$id])->with('monsters')->all();
         return $this -> render('level_list',compact('selectWorld','levelList'));
     }
 

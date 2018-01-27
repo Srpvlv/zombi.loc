@@ -26,4 +26,10 @@ class Level extends ActiveRecord
     {
         return $this -> hasOne(World::className(),['id'=>'worldId']) ;
     }
+
+    public function getMonsters()
+    {
+        return $this -> hasMany(LevelMonster::className(),['levelId'=>'id']) ;
+    }
+
 }

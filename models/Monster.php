@@ -21,4 +21,10 @@ class Monster extends ActiveRecord
             [['wordId','monsterImg'], 'safe'],
         ];
     }
+
+    public function getLevelsCol()
+    {
+        return $this -> hasMany(LevelMonster::className(),['monsterId'=>'id']) ;
+    }
+
 }

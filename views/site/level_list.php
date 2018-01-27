@@ -29,13 +29,14 @@ echo 'Количесто уровней '.$selectWorld -> getLevels()->count();
         }
         echo '<p><a class="btn btn-primary" href='.Url::to(['new_data/level_edit','id'=>$level->id]).'>Дополнить</a></p>';
         echo '</td>';
-        /*Список монстрой уровня
-         * echo '<td>';
-        echo $world -> name.'<br>';
-        echo 'Сложность '.$world -> dificult.'<br>';
-        echo 'Количесто уровней '.$world -> getLevels()->count();
-        echo '<p><a class="btn btn-success" href='.Url::to(['site/level_list','id'=>$world->id]).'>Список уровней</a></p>';
-        echo '</td>';*/
+        foreach ($level->monsters as $monsterData)
+        {
+            echo '<td>';
+            echo '<img src="/web/uploads/'.$monsterData->monsterData->monsterImg.'" alt="World icon" /><br>';
+            echo $monsterData->monsterData->monsterName.'<br>';
+            echo $monsterData->col;
+            echo '</td>';
+        }
         echo '<td>';
         echo '<p><a class="btn btn-success" href='.Url::to(['new_data/level_monster','id'=>$level->id]).'>Добавить<br>монстра</a></p>';
         echo '</td>';

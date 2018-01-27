@@ -8,7 +8,7 @@ $mList = ArrayHelper::map($monsterList,'id','monsterName');
 
 $dataForm = ActiveForm::begin();
 
-echo '<h4>'.$worldName->name.'</h4><br><h5>'.$selectLevel->name.'</h5><br>';
+echo '<h4>'.$worldName->name.'</h4><h5>'.$selectLevel->name.'</h5>';
 ?>
 <?= $dataForm->field($newCol, 'monsterId')->label('Монстр')->dropDownList($mList)?>
 <?= $dataForm->field($newCol, 'col')->label('Количество')?>

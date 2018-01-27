@@ -19,4 +19,15 @@ class LevelMonster extends ActiveRecord
             [['levelId','monsterId','col'], 'safe'],
         ];
     }
+
+    public function getLevels()
+    {
+        return $this -> hasMany(Level::className(),['id'=>'levelId']) ;
+    }
+
+    public function getMonsterData()
+    {
+        return $this -> hasOne(Monster::className(),['id'=>'monsterId']) ;
+    }
+
 }
